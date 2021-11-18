@@ -44,14 +44,14 @@
     }
 
     function fetchAll() {
-      var TestClass = ncmb.DataStore("FetchTest"); // クラスを指定
-      TestClass.fetchAll() // fetchAll 関数を呼び出してレコードを取得
-        .then(function(results) { // .then で成功時の処理を記述// functionの引数が取得したレコードの配列
+      var TestClass = ncmb.DataStore("FetchTest");
+      TestClass.fetchAll()
+        .then(function(results) {
           var msg = "";
           for (var i = 0; i < results.length; i++) {
             var data = results[i].get("text");
             var update = results[i].get("updateDate");
-            msg += data + ":" + update;
+            msg += data + ":" + update+"<br>";
           }
           $("#message").html(msg);
         })
